@@ -16,7 +16,7 @@ DeepNotes is an open source, end-to-end encrypted infinite canvas tool with deep
 ## Development
 
 ```console
-git clone https://github.com/DeepNotesApp/DeepNotes && cd DeepNotes && cp template.env .env && pnpm install && pnpm run repo:build && docker-compose up -d
+git clone https://github.com/bluekeys/DeepNotes && cd DeepNotes && cp template.env .env && pnpm install && pnpm run repo:build && docker-compose up -d
 ```
 
 (On Windows, use WSL or Git Bash to run the commands above)
@@ -39,3 +39,7 @@ git clone https://github.com/DeepNotesApp/DeepNotes && cd DeepNotes && cp templa
 - [Tiptap](https://tiptap.dev/): Rich text editor
 - [KeyDB](https://docs.keydb.dev/) and [Redis](https://redis.io/): Scalable shared memory and communication
 - And many more...
+
+## Credits
+
+This project is a fork of [DeepNotesApp/DeepNotes](https://github.com/DeepNotesApp/DeepNotes) by DeepNotesApp. Special thanks to the original author and contributors for their work.
