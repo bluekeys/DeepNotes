@@ -15,6 +15,8 @@ DeepNotes is an open source, end-to-end encrypted infinite canvas tool with deep
 
 ## Development
 
+> **Note:** Commit message hooks (used to enforce commit message style) are not installed until you run `pnpm install`. This step sets up [Husky](https://typicode.github.io/husky/) to automatically check your commit messages using commitlint. If you make commits before running `pnpm install`, the commit hooks will not be active and your messages may not be checked.
+
 ```console
 git clone https://github.com/bluekeys/DeepNotes && cd DeepNotes && cp template.env .env && pnpm install && pnpm run repo:build && docker-compose up -d
 ```
@@ -39,6 +41,54 @@ git clone https://github.com/bluekeys/DeepNotes && cd DeepNotes && cp template.e
 - [Tiptap](https://tiptap.dev/): Rich text editor
 - [KeyDB](https://docs.keydb.dev/) and [Redis](https://redis.io/): Scalable shared memory and communication
 - And many more...
+
+## Contributing
+
+### Commit Hooks and Husky
+
+This project uses [Husky](https://typicode.github.io/husky/) to manage Git hooks. After running `pnpm install`, Husky sets up a commit-msg hook that checks your commit messages using commitlint. This helps enforce a consistent commit history and automates changelog generation.
+
+If you commit before running `pnpm install`, the hooks will not be installed and your commit messages may not be checked.
+
+### Commit Message Guidelines
+
+This project uses [commitlint](https://github.com/conventional-changelog/commitlint) to enforce Conventional Commit messages. This helps keep the project history clean and automates changelog generation.
+
+#### Format
+
+Commit messages must follow this format:
+
+```
+type(scope): short description
+
+[optional body, each line ≤ 100 characters]
+```
+
+**Types:**
+
+- `feat`: a new feature
+- `fix`: a bug fix
+- `docs`: documentation only changes
+- `style`: formatting, missing semi colons, etc; no code change
+- `refactor`: code change that neither fixes a bug nor adds a feature
+- `perf`: performance improvement
+- `test`: adding or correcting tests
+- `chore`: changes to the build process or auxiliary tools
+
+**Scope:** (optional) the part of the codebase affected, e.g. `client`, `server`, `docs`
+
+#### Examples
+
+- `feat: add new canvas drawing tool`
+- `fix(client): resolve login bug`
+- `chore: update dependencies`
+
+#### More Resources
+
+- [Commitlint documentation](https://commitlint.js.org/)
+- [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/)
+
+Commit messages that do not follow these rules will be rejected by the commit hook. If you need to add a longer description, use the commit body and keep each line under 100 characters.
 
 ## Credits
 
