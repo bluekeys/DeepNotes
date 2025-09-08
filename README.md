@@ -33,7 +33,13 @@ git clone https://github.com/bluekeys/DeepNotes && cd DeepNotes && cp template.e
 
 (If you use SPA or SSR, you must access the app through `http://localhost:60379` by default. Other URLs won't work. You can configure the host and ports in the `.env` file.)
 
-## Special thanks to these libraries for making DeepNotes possible:
+## Monorepo Build System: Turborepo
+
+This project uses [Turborepo](https://turbo.build/) to manage and optimize builds across all packages in the monorepo. Turborepo enables fast, incremental builds and caching for large codebases with many interdependent packages.
+
+- Build commands like `pnpm run repo:build` and development workflows are powered by Turborepo.
+- Turborepo stores its local build cache in the `.turbo/` directory, which should not be committed to version control (see `.gitignore`).
+- For more information, see the [Turborepo documentation](https://turbo.build/docs).
 
 - [Vue.js](https://vuejs.org/): Reactivity, component system, and more
 - [Quasar Framework](https://quasar.dev/): Cross-platform frontend framework
