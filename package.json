@@ -33,13 +33,17 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "pnpm@7.6.0",
+  "packageManager": "pnpm@10.15.1",
   "pnpm": {
     "patchedDependencies": {
       "dotenv-expand@9.0.0": "patches/dotenv-expand@9.0.0.patch"
+    },
+    "overrides": {
+      "knex": "2.3.0",
+      "objection": "3.0.1",
+      "ioredis": "npm:@deepnotes/ioredis@^5.3.1"
     }
   },
-  "private": true,
   "scripts": {
     "build": "turbo run build",
     "android:build": "pnpm --filter @deepnotes/client run build:android",

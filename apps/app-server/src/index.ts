@@ -7,7 +7,13 @@ import { fastify } from './fastify/server';
 
 void fastify().then(async (fastify) => {
   await fastify.listen({
-    port: parseInt(process.env.APP_SERVER_PORT),
+    port: parseInt(
+      process.env.APP_SERVER_PORT !== undefined
+        ? process.env.APP_SERVER_PORT
+        : (() => {
+            throw new Error('Missing APP_SERVER_PORT');
+          })(),
+    ),
     host: '0.0.0.0',
   });
 

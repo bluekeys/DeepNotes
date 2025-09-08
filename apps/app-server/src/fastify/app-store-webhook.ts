@@ -99,16 +99,22 @@ export async function webhook({
   _webhookLogger.info('Signed payload: %o', input);
 
   const decodedPayloadSignature = jws.decode(input.signedPayload);
-  const decodedPayload =
-    decodedPayloadSignature.payload as responseBodyV2DecodedPayload;
+  const decodedPayload = (() => {
+    if (!decodedPayloadSignature)
+      throw new Error('Missing decodedPayloadSignature');
+    return decodedPayloadSignature.payload as responseBodyV2DecodedPayload;
+  })();
 
   _webhookLogger.info('Decoded payload: %o', decodedPayload);
 
   const decodedTransactionSignature = jws.decode(
     decodedPayload.data.signedTransactionInfo,
   );
-  const decodedTransaction =
-    decodedTransactionSignature.payload as JWSTransactionDecodedPayload;
+  const decodedTransaction = (() => {
+    if (!decodedTransactionSignature)
+      throw new Error('Missing decodedTransactionSignature');
+    return decodedTransactionSignature.payload as JWSTransactionDecodedPayload;
+  })();
 
   _webhookLogger.info('Decoded transaction: %o', decodedTransaction);
 }

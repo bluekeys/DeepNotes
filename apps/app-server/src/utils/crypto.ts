@@ -69,7 +69,13 @@ export function getDeviceHash(input: {
 // User rehashed login hash
 
 const _userRehashedLoginHashEncryptionKey = wrapSymmetricKey(
-  base64ToBytes(process.env.USER_REHASHED_LOGIN_HASH_ENCRYPTION_KEY),
+  base64ToBytes(
+    process.env.USER_REHASHED_LOGIN_HASH_ENCRYPTION_KEY !== undefined
+      ? process.env.USER_REHASHED_LOGIN_HASH_ENCRYPTION_KEY
+      : (() => {
+          throw new Error('Missing USER_REHASHED_LOGIN_HASH_ENCRYPTION_KEY');
+        })(),
+  ),
 );
 export function encryptUserRehashedLoginHash(userRehashedLoginHash: string) {
   return _userRehashedLoginHashEncryptionKey.encrypt(
@@ -91,7 +97,15 @@ export function decryptUserRehashedLoginHash(
 // Group rehashed password hash
 
 const _groupRehashedPasswordHashEncryptionKey = wrapSymmetricKey(
-  base64ToBytes(process.env.GROUP_REHASHED_PASSWORD_HASH_ENCRYPTION_KEY),
+  base64ToBytes(
+    process.env.GROUP_REHASHED_PASSWORD_HASH_ENCRYPTION_KEY !== undefined
+      ? process.env.GROUP_REHASHED_PASSWORD_HASH_ENCRYPTION_KEY
+      : (() => {
+          throw new Error(
+            'Missing GROUP_REHASHED_PASSWORD_HASH_ENCRYPTION_KEY',
+          );
+        })(),
+  ),
 );
 export function encryptGroupRehashedPasswordHash(
   groupRehashedPasswordHash: string,
@@ -115,7 +129,13 @@ export function decryptGroupRehashedPasswordHash(
 // User authenticator secret
 
 const _userAuthenticatorSecretEncryptionKey = wrapSymmetricKey(
-  base64ToBytes(process.env.USER_AUTHENTICATOR_SECRET_ENCRYPTION_KEY),
+  base64ToBytes(
+    process.env.USER_AUTHENTICATOR_SECRET_ENCRYPTION_KEY !== undefined
+      ? process.env.USER_AUTHENTICATOR_SECRET_ENCRYPTION_KEY
+      : (() => {
+          throw new Error('Missing USER_AUTHENTICATOR_SECRET_ENCRYPTION_KEY');
+        })(),
+  ),
 );
 export function encryptUserAuthenticatorSecret(
   userAuthenticatorSecret: string,
@@ -139,7 +159,13 @@ export function decryptUserAuthenticatorSecret(
 // User recovery codes
 
 const _userRecoveryCodesEncryptionKey = wrapSymmetricKey(
-  base64ToBytes(process.env.USER_RECOVERY_CODES_ENCRYPTION_KEY),
+  base64ToBytes(
+    process.env.USER_RECOVERY_CODES_ENCRYPTION_KEY !== undefined
+      ? process.env.USER_RECOVERY_CODES_ENCRYPTION_KEY
+      : (() => {
+          throw new Error('Missing USER_RECOVERY_CODES_ENCRYPTION_KEY');
+        })(),
+  ),
 );
 export function encryptRecoveryCodes(userRecoveryCodes: Uint8Array[]) {
   return _userRecoveryCodesEncryptionKey.encrypt(pack(userRecoveryCodes), {
