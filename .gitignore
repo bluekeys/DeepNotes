@@ -17,4 +17,4 @@ dist
 deploy-*.sh
 
 postgres_data
-keydb_data
+keydb_data.turbo/
