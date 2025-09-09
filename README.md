@@ -13,6 +13,30 @@ DeepNotes is an open source, end-to-end encrypted infinite canvas tool with deep
 - **Flexible note system:** Organize your notes in whatever way you want.
 - **Lifelong storage:** Never lose your notes ever again.
 
+## Core Technologies
+
+DeepNotes is built using modern open source technologies:
+
+- **[Vue.js](https://vuejs.org/):** Progressive JavaScript framework for building user interfaces and single-page applications.
+- **[Quasar Framework](https://quasar.dev/):** Cross-platform frontend framework for building SPA, SSR, mobile, and desktop apps with Vue.
+- **[Yjs](https://docs.yjs.dev/):** CRDT-based library for realtime collaboration and shared editing.
+- **[Tiptap](https://tiptap.dev/):** Rich text editor framework built on top of ProseMirror, highly extensible for custom editors.
+- **[Docker](https://www.docker.com/):** Containerization platform used to run databases and backend services in isolated environments.
+- **[PostgreSQL](https://www.postgresql.org/):** Advanced open source relational database powering DeepNotes data storage.
+- **[KeyDB](https://docs.keydb.dev/):** High-performance, multi-threaded database compatible with Redis, used for caching and pub/sub.
+- **[Redis](https://redis.io/):** In-memory data structure store, used for caching and message brokering (via KeyDB compatibility).
+- **[Turborepo](https://turbo.build/):** Monorepo build system for fast, incremental builds and caching across all packages and apps.
+- **[pnpm](https://pnpm.io/):** Fast, disk-efficient package manager for JavaScript/TypeScript monorepos.
+- **[Husky](https://typicode.github.io/husky/):** Git hooks manager used to enforce commit message style and automate checks.
+
+#### About Turborepo
+
+This project uses [Turborepo](https://turbo.build/) to manage and optimize builds across all packages in the monorepo. Turborepo enables fast, incremental builds and caching for large codebases with many interdependent packages.
+
+- Build commands like `pnpm run repo:build` and development workflows are powered by Turborepo.
+- Turborepo stores its local build cache in the `.turbo/` directory, which should not be committed to version control (see `.gitignore`).
+- For more information, see the [Turborepo documentation](https://turbo.build/docs).
+
 ## Development
 
 To set up and run DeepNotes locally, follow these steps:
@@ -91,24 +115,7 @@ Choose one of the following commands depending on your target platform:
 
 > For SPA or SSR, open [http://localhost:60379](http://localhost:60379) in your browser. You can change the host and ports in the `.env` file.
 
----
-
 **Windows users:** Use WSL or Git Bash to run these commands.
-
-## Monorepo Build System: Turborepo
-
-This project uses [Turborepo](https://turbo.build/) to manage and optimize builds across all packages in the monorepo. Turborepo enables fast, incremental builds and caching for large codebases with many interdependent packages.
-
-- Build commands like `pnpm run repo:build` and development workflows are powered by Turborepo.
-- Turborepo stores its local build cache in the `.turbo/` directory, which should not be committed to version control (see `.gitignore`).
-- For more information, see the [Turborepo documentation](https://turbo.build/docs).
-
-- [Vue.js](https://vuejs.org/): Reactivity, component system, and more
-- [Quasar Framework](https://quasar.dev/): Cross-platform frontend framework
-- [Yjs](https://docs.yjs.dev/): Realtime collaboration
-- [Tiptap](https://tiptap.dev/): Rich text editor
-- [KeyDB](https://docs.keydb.dev/) and [Redis](https://redis.io/): Scalable shared memory and communication
-- And many more...
 
 ## Contributing
 
