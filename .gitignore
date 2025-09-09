@@ -17,4 +17,10 @@ dist
 deploy-*.sh
 
 postgres_data
-keydb_data.turbo/
+
+# Turborepo build cache
+.turbo/
+
+# KeyDB database dumps
+keydb_data/
+
