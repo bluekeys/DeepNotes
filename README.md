@@ -165,6 +165,17 @@ type(scope): short description
 
 Commit messages that do not follow these rules will be rejected by the commit hook. If you need to add a longer description, use the commit body and keep each line under 100 characters.
 
+## Licensing
+
+DeepNotes is licensed under the **GNU Affero General Public License v3 (AGPL-3.0)**.
+
+You are free to use, modify, and redistribute this software, provided that you also share your changes under the same license.
+If you run a modified version of DeepNotes on a publicly accessible server, you must make the source code of your modifications available to users of that server.
+The AGPL-3.0 ensures that improvements and changes remain open and accessible to the community, especially for network/server software.
+For full license terms, see the [LICENSE](./LICENSE) file or visit [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html).
+
+If you contribute to DeepNotes, your contributions will also be covered by the AGPL-3.0 license.
+
 ## Credits
 
 This project is a fork of [DeepNotesApp/DeepNotes](https://github.com/DeepNotesApp/DeepNotes) by DeepNotesApp. Special thanks to the original author and contributors for their work.
