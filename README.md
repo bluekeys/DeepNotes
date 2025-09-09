@@ -15,23 +15,85 @@ DeepNotes is an open source, end-to-end encrypted infinite canvas tool with deep
 
 ## Development
 
-> **Note:** Commit message hooks (used to enforce commit message style) are not installed until you run `pnpm install`. This step sets up [Husky](https://typicode.github.io/husky/) to automatically check your commit messages using commitlint. If you make commits before running `pnpm install`, the commit hooks will not be active and your messages may not be checked.
+To set up and run DeepNotes locally, follow these steps:
 
-```console
-git clone https://github.com/bluekeys/DeepNotes && cd DeepNotes && cp template.env .env && pnpm install && pnpm run repo:build && docker-compose up -d
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/bluekeys/DeepNotes
+cd DeepNotes
 ```
 
-(On Windows, use WSL or Git Bash to run the commands above)
+### 2. Prepare your configuration
 
-1. Run `pnpm run dev` to start the backend servers.
-2. Run one of these commands to start the frontend server:
-   - `pnpm run dev:spa` to start the Single Page Application app.
-   - `pnpm run dev:ssr` to start the Server Side Rendered app.
-   - `pnpm run dev:electron` to start the Electron app.
-   - `pnpm run dev:android` to start the Android app (requires Android Studio).
-   - `pnpm run dev:ios` to start the iOS app (requires Xcode).
+Copy the example environment file to create your own local config:
 
-(If you use SPA or SSR, you must access the app through `http://localhost:60379` by default. Other URLs won't work. You can configure the host and ports in the `.env` file.)
+```bash
+cp template.env .env
+```
+
+Edit `.env` as needed for your local ports, database credentials, etc.
+
+### 3. Install dependencies
+
+Install all required packages for the monorepo:
+
+```bash
+pnpm install
+```
+
+This also sets up commit message hooks (via Husky) to enforce commit style.
+
+### 4. Start the databases (Postgres & KeyDB)
+
+Start the required database services using Docker:
+
+```bash
+docker-compose up -d
+```
+
+This launches Postgres and KeyDB containers. You need these running for backend services to work.
+
+### 5. Start backend application servers
+
+Run all backend services in parallel:
+
+```bash
+pnpm run dev
+```
+
+This starts the app-server, collab-server, realtime-server, etc. These connect to the databases you started above.
+
+### 6. Start the frontend app
+
+Choose one of the following commands depending on your target platform:
+
+- **Single Page Application (SPA):**
+  ```bash
+  pnpm run dev:spa
+  ```
+- **Server Side Rendered (SSR) app:**
+  ```bash
+  pnpm run dev:ssr
+  ```
+- **Electron desktop app:**
+  ```bash
+  pnpm run dev:electron
+  ```
+- **Android app (requires Android Studio):**
+  ```bash
+  pnpm run dev:android
+  ```
+- **iOS app (requires Xcode):**
+  ```bash
+  pnpm run dev:ios
+  ```
+
+> For SPA or SSR, open [http://localhost:60379](http://localhost:60379) in your browser. You can change the host and ports in the `.env` file.
+
+---
+
+**Windows users:** Use WSL or Git Bash to run these commands.
 
 ## Monorepo Build System: Turborepo
 
