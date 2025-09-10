@@ -156,21 +156,49 @@ pnpm run dev
 
 This command uses Turborepo to run all backend apps in parallel. To run a specific app:
 
+To run a specific app, use one of the following commands:
+
 ```bash
-pnpm --filter app-server dev
-pnpm --filter collab-server dev
-pnpm --filter realtime-server dev
-pnpm --filter scheduler dev
-pnpm --filter manager dev
+pnpm --filter app-server dev      # Main backend API
+```
+
+```bash
+pnpm --filter collab-server dev   # Realtime collaborative editing
+```
+
+```bash
+pnpm --filter realtime-server dev # Websocket server for realtime events
+```
+
+```bash
+pnpm --filter scheduler dev       # Scheduled background tasks
+```
+
+```bash
+pnpm --filter manager dev         # Admin/maintenance CLI
 ```
 
 3. Start the frontend client (choose your platform):
 
+To start the frontend client, use one of the following commands:
+
 ```bash
 pnpm run dev:spa      # Single Page App
+```
+
+```bash
 pnpm run dev:ssr      # Server Side Rendered
+```
+
+```bash
 pnpm run dev:electron # Desktop
+```
+
+```bash
 pnpm run dev:android  # Android
+```
+
+```bash
 pnpm run dev:ios      # iOS
 ```
 
