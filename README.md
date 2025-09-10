@@ -127,6 +127,55 @@ Choose one of the following commands depending on your target platform:
 
 **Windows users:** Use WSL or Git Bash to run these commands.
 
+## Application Overview and Startup
+
+DeepNotes consists of several backend and frontend apps managed in the monorepo:
+
+| App             | Role/Function                                              | Depends On               |
+| --------------- | ---------------------------------------------------------- | ------------------------ |
+| app-server      | Main backend API, authentication, data access              | PostgreSQL, KeyDB        |
+| client          | Frontend SPA/SSR/Electron/mobile app                       | app-server, backend APIs |
+| collab-server   | Realtime collaborative editing (CRDT/Yjs)                  | PostgreSQL, KeyDB        |
+| realtime-server | Websocket server for realtime events                       | PostgreSQL, KeyDB        |
+| scheduler       | Scheduled background tasks (cleanup, maintenance)          | PostgreSQL, KeyDB        |
+| manager         | Admin/maintenance CLI (user/group/email/Stripe management) | PostgreSQL, KeyDB        |
+
+**Startup Order:**
+
+1. Start databases:
+
+```bash
+docker-compose up -d
+```
+
+2. Start backend servers (all at once, using Turborepo):
+
+```bash
+pnpm run dev
+```
+
+This command uses Turborepo to run all backend apps in parallel. To run a specific app:
+
+```bash
+pnpm --filter app-server dev
+pnpm --filter collab-server dev
+pnpm --filter realtime-server dev
+pnpm --filter scheduler dev
+pnpm --filter manager dev
+```
+
+3. Start the frontend client (choose your platform):
+
+```bash
+pnpm run dev:spa      # Single Page App
+pnpm run dev:ssr      # Server Side Rendered
+pnpm run dev:electron # Desktop
+pnpm run dev:android  # Android
+pnpm run dev:ios      # iOS
+```
+
+For more details on Turborepo configuration and advanced usage, see the [Turborepo documentation](https://turbo.build/docs).
+
 ## Contributing
 
 ### Commit Hooks and Husky
