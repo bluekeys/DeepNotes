@@ -29,13 +29,23 @@ DeepNotes is built using modern open source technologies:
 - **[pnpm](https://pnpm.io/):** Fast, disk-efficient package manager for JavaScript/TypeScript monorepos.
 - **[Husky](https://typicode.github.io/husky/):** Git hooks manager used to enforce commit message style and automate checks.
 
-#### About Turborepo
+## Monorepo Structure and Turborepo
 
-This project uses [Turborepo](https://turbo.build/) to manage and optimize builds across all packages in the monorepo. Turborepo enables fast, incremental builds and caching for large codebases with many interdependent packages.
+DeepNotes uses a monorepo structure managed by [Turborepo](https://turbo.build/), which enables fast, incremental builds and caching for large codebases with many interdependent packages and apps.
 
-- Build commands like `pnpm run repo:build` and development workflows are powered by Turborepo.
-- Turborepo stores its local build cache in the `.turbo/` directory, which should not be committed to version control (see `.gitignore`).
-- For more information, see the [Turborepo documentation](https://turbo.build/docs).
+### Main Directories
+
+- **apps/**: Contains all main applications, such as backend servers, frontend clients, schedulers, and related services. Each app is in its own subfolder (e.g., `app-server`, `client`, `collab-server`).
+- **packages/**: Contains shared libraries and modules, organized by namespace (e.g., `@stdlib`, `@deeplib`). These packages provide reusable code, utilities, and configuration used by the apps.
+
+### Other Folders Used by Turborepo
+
+- **.turbo/**: Local build cache for Turborepo. This folder should not be committed to version control (see `.gitignore`).
+- **patches/**: Used for package manager patches (e.g., pnpm), not directly by Turborepo but often present in monorepos.
+
+Turborepo coordinates builds, tests, and other tasks across these directories, enabling efficient development and CI/CD for all parts of the project.
+
+For more details, see [Turborepo documentation](https://turbo.build/docs).
 
 ## Development
 
