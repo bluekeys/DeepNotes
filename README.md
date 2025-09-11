@@ -183,23 +183,23 @@ pnpm --filter manager dev         # Admin/maintenance CLI
 To start the frontend client, use one of the following commands:
 
 ```bash
-pnpm run dev:spa      # Single Page App
+pnpm run spa:dev      # Single Page App
 ```
 
 ```bash
-pnpm run dev:ssr      # Server Side Rendered
+pnpm run ssr:dev      # Server Side Rendered
 ```
 
 ```bash
-pnpm run dev:electron # Desktop
+pnpm run electron:dev # Desktop
 ```
 
 ```bash
-pnpm run dev:android  # Android
+pnpm run android:dev  # Android
 ```
 
 ```bash
-pnpm run dev:ios      # iOS
+pnpm run ios:dev      # iOS
 ```
 
 For more details on Turborepo configuration and advanced usage, see the [Turborepo documentation](https://turbo.build/docs).
