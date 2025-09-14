@@ -15,6 +15,15 @@ DeepNotes is an open source, end-to-end encrypted infinite canvas tool with deep
 
 ## Core Technologies
 
+> **Note on Developer Setup**
+>
+> This project uses both a `README.md` and a `machines.txt` file:
+>
+> - `README.md` provides general project documentation, usage instructions, and contribution guidelines.
+> - `machines.txt` documents machine-specific setup, environment requirements, recommended tools, and VS Code extensions for contributors.
+>
+> Please consult both files when setting up your development environment to ensure reliability and consistency across all contributors’ machines.
+
 DeepNotes is built using modern open source technologies:
 
 - **[Vue.js](https://vuejs.org/):** Progressive JavaScript framework for building user interfaces and single-page applications.

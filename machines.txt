@@ -1,0 +1,42 @@
+# machines.txt
+# Project: DeepNotes
+# Purpose: Document machine-specific setup, environment requirements, and recommended tools/extensions for contributors.
+
+[os]
+linux: Ubuntu 22.04+ (recommended)
+macos: Sonoma+ (supported)
+windows: 11+ (supported, WSL recommended)
+
+[hardware]
+cpu: 2+ cores
+ram: 4GB+ (8GB recommended)
+disk: 10GB free
+
+[env]
+SEND_EMAILS=true
+NODE_ENV=development
+
+[tools]
+node: 22.x
+pnpm: 10.x
+git: 2.40+
+docker: optional (for containerized development)
+
+[setup]
+pnpm install
+
+[extensions]
+ms-vscode.vscode-typescript-next
+esbenp.prettier-vscode
+dbaeumer.vscode-eslint
+github.copilot
+vitest.vitest-explorer
+
+[notes]
+- Use pnpm for all package management commands.
+- If using WSL, ensure Node and pnpm are installed inside your Linux environment.
+- For email testing, set SEND_EMAILS=false to auto-verify accounts.
+- If you encounter issues with dependencies, run `pnpm install --force`.
+
+[remote]
+- Use VS Code Remote Containers for isolated dev environments (optional).
