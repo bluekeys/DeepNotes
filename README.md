@@ -56,6 +56,15 @@ Turborepo coordinates builds, tests, and other tasks across these directories, e
 
 For more details, see [Turborepo documentation](https://turbo.build/docs).
 
+## Development Scripts
+
+This project provides two main scripts for running each application:
+
+- `pnpm run dev`: Starts the app with the Node.js debugger enabled (`--inspect`), allowing you to attach a debugger at any time. The app runs normally and does not pause at startup.
+- `pnpm run debug`: Starts the app with the Node.js debugger in break mode (`--inspect-brk`), pausing execution on the first line. Use this when you want to debug from the very start of the process.
+
+For regular development, use `pnpm run dev`. Use `pnpm run debug` only when you need to debug initialization code.
+
 ## Development
 
 To set up and run DeepNotes locally, follow these steps:

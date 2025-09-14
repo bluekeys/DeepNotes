@@ -25,6 +25,12 @@ docker: optional (for containerized development)
 [setup]
 pnpm install
 
+# To run applications for development:
+pnpm run dev
+
+# To debug from the very start of execution:
+pnpm run debug
+
 [extensions]
 ms-vscode.vscode-typescript-next
 esbenp.prettier-vscode
